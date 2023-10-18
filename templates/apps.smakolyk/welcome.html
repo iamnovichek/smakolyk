@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smakolyk</title>
+    <link rel="stylesheet" href="{% static 'smakolyk/css/welcome.css' %}">
+    <link
+        type="image/png"
+        rel="Shortcut Icon"
+        href="{% static 'smakolyk/images/pizza.png' %}">
+    <style>
+      body {
+        background-image: url('{% static "smakolyk/images/main_bg.jpg" %}');
+        background-size: cover;
+      }
+      .btns{
+        height: 50px;
+        width: 200px;
+        background-color: rgb(240, 83, 35);
+        border-radius: 10px;
+        font-size: 25px;
+        box-shadow: 1px 1px 10px red,-1px -1px 10px red;
+        border: 1px solid red;
+        color: white;
+        font-family: 'Ubuntu', sans-serif;
+        cursor:url('{% static "smakolyk/images/cursor.png" %}'),pointer;
+      }
+      a{
+        text-decoration:none;
+        color: white;
+        cursor:url('{% static "smakolyk/images/cursor.png" %}'),pointer;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="logo">
+        <h1>Smakolyk</h1>
+    </div>
+    <div class="main">
+        <div class="txt">Welcome to our page</div>
+        <div class="btn">
+            <button class="btns"><a href="#">GET STARTED</a></button>
+        </div>
+    </div>
+{% endblock %}
