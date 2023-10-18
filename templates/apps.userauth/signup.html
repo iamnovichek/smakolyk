@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'apps.userauth/css/signup.css' %}">
+    <link type="image/png" rel="Shortcut Icon" href="{% static 'apps.userauth/images/pizza.png' %}">
+    <title>Signup</title>
+{% endblock %}
+
+{% block content %}
+    <form class="needs-validation" method="post">
+         {% csrf_token %}
+        <h1>Sign up</h1>
+        <div class="form-group was-validated">
+            <label  class="inp form-label">Username:</label><br>
+            {% render_field form.username class='form-control' type="text" %}
+        </div>
+        <div class="form-group was-validated">
+            <label class="inp form-label">Email:</label><br>
+            {% render_field form.email class='form-control' type="email" %}
+        </div>
+        <div class="form-group">
+            <label class="inp form-label">Phone number:</label><br>
+            <div class="input-group mb-3">
+                {% render_field form.phone class="form-control is-invalid" id="phone" aria-label="Amount (to the nearest dollar)" type='tel' %}
+              </div>
+        </div>
+        <div class="form-group was-validated">
+            <label class="inp form-label">First name:</label><br>
+            {% render_field form.first_name class='form-control' type="text" %}
+        </div>
+        <div class="form-group was-validated">
+            <label class="inp form-label">Last name:</label><br>
+            {% render_field form.last_name class='form-control' type="text" %}
+        </div>
+        <div class="form-group was-validated">
+            <label class="inp form-label">Password:</label><br>
+            {% render_field form.password1 class='form-control' type="password" %}
+        </div>
+        <div class="form-group was-validated">
+            <label class="inp form-label">Confirm password:</label><br>
+            {% render_field form.password2 class='form-control' type="password" %}
+        </div>
+        {% if form.errors %}
+            {% for kw, error in form.errors.items %}
+                {{error.as_p}}
+            {% endfor %}
+        {% endif %}
+        <button type="submit">Submit</button>
+    </form>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+    <script src="{% static 'apps.userauth/js/signup.js' %}"></script>
+{% endblock %}

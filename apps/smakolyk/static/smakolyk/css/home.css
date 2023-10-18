@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation:wght@500&family=Josefin+Sans:wght@200&family=Kanit:wght@300&family=Roboto:wght@300&family=Ubuntu:ital,wght@1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 70px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 1px 1px 10px rgb(238, 64, 64);
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+nav ul li{
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    padding: 15px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: rgb(238, 64, 64);
+}
+
+nav h1{
+    padding: 5px;
+    font-size: 25px;
+    border-radius: 10px;
+    color: rgb(127, 24, 24);
+}
+
+nav i{
+    font-size: 20px;
+}
+
+
+nav a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+nav .login,nav .signup{
+    color: rgb(0, 0, 0);
+    background-color: rgb(238, 64, 64);
+    border-radius: 10px;
+    border: 1px solid rgb(238, 64, 64);
+}
+
+nav .login:hover,nav .signup:hover{
+    background-color:white;
+    color: black;
+    border: 1px solid rgb(238, 64, 64);
+}
+
+nav .login,.signup{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+nav img{
+    width: 100px;
+    height: 45px;
+    position: absolute;
+    left: 165px;
+}
+
+/* Menu */
+.main h1{
+    color: rgb(255, 255, 255);
+    background-color: rgb(238, 64, 64);
+    text-align: center;
+    margin-top: 5px;
+    width: 50%;
+    margin: auto;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    font-size: 30px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.title h2{
+    font-size: 30px;
+    background-color: rgb(134, 35, 35);
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+.col-md-4 img{
+    margin: auto;
+    height: 65%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(91, 90, 90);
+  border-radius: 10px;
+}
+
+#myCarousel , #myCarousel2 , #myCarousel3 , #myCarousel4{
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.carousel-inner{
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.col-md-4{
+    background-color: rgb(238, 64, 64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    text-align: center;
+
+}

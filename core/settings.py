@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'widget_tweaks',
+    'phonenumber_field',
     'apps.userauth',
     'apps.smakolyk'
 ]
@@ -99,3 +100,10 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+AUTH_USER_MODEL = "userauth.CustomUser"
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'

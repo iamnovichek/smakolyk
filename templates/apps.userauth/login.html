@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'apps.userauth/css/login.css' %}">
+<title>Login</title>
+<link type="image/png" rel="Shortcut Icon" href="{% static 'apps.userauth/images/pizza.png' %}">
+{% endblock %}
+{% block content %}
+<form class="needs-validation" method="post">
+    {% csrf_token %}
+        <h1>Login</h1>
+        <div class="form-group was-validated">
+            <label for="email" class="inp form-label">Email</label><br>
+            {{ form.username|attr:'class:form-control'|attr:'type:email'|attr:'id:email' }}
+            <div class="invalid-feedback">Please enter your email address</div>
+        </div>
+        <div class="form-group was-validated">
+            <label for="password" class="inp form-label">Password</label><br>
+            {{ form.password|attr:'class:form-control'|attr:'type:password'|attr:'id:password' }}
+            <br>
+            {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <button class="sbtn" type="submit">Submit</button>
+        <div class="no-account">Don't have an account?<a href="{% url 'signup' %}">  Sign up</a></div>
+</form>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+{% endblock %}

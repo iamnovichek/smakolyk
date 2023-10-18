@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block extrahead %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'smakolyk/css/profile.css' %}">
+    <title>Profile</title>
+    <link type="image/png" rel="Shortcut Icon" href="{% static 'smakolyk/images/pizza.png' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="prf">Profile</h1>
+    <div class="imag">
+        <img class="photo" src="{{user.userprofile.photo.url}}">
+    </div>
+    <main>
+        <div class="header">
+            <div class="username"><label>Username:</label><br>
+                <div>{{user.userprofile.username}}</div>
+            </div><br>
+            <div class="email"><label>Email:</label><br>
+                <div>{{user.email}}</div>
+            </div><br>
+            <div class="fname"><label>First name:</label><br>
+                <div>{{user.userprofile.first_name}}</div>
+            </div><br>
+            <div class="lname"><label>Last name:</label><br>
+                <div>{{user.userprofile.last_name}}</div>
+            </div><br>
+            <div class="pnumber"><label>Phone number:</label><br>
+                <div>{{user.userprofile.phone}}</div>
+            </div><br>
+            <div class="brth"><label>Birthday:</label><br>
+                <div>
+                    {% if user.userprofile.birthdate %}
+                        {{user.userprofile.birthdate}}
+                    {% else %}
+                        You haven't specified yet
+                    {% endif %}</div>
+                </div><br>
+        </div>
+        <div class="buttons">
+            <button class="b1"><a href="{% url 'home' %}">Home</a></button>
+        </div>
+    </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+{% endblock %}

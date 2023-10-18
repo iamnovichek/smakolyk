@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(238, 64, 64);
+}
+
+form{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+    height: 450px;
+}
+
+form h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-group .inp{
+    font-size: 25px;
+}
+
+.rem{
+    font-size: 15px;
+}
+
+
+.p2{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transform:rotateY(180deg);
+}
+
+
+input[type='checkbox'],.rem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.form-group input[type='email'],[type='password']{
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 40px;
+    width: 100%;
+}
+
+.no-account{
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+.no-account a{
+    text-decoration: none;
+}
+
+button{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 35px;
+}
+.sbtn:hover{
+    background-color: green;
+    color: white;
+}
