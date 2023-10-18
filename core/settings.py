@@ -107,3 +107,4 @@ LOGOUT_REDIRECT_URL = "home"
 AUTH_USER_MODEL = "userauth.CustomUser"
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+# FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'

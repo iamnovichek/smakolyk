@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'smakolyk/css/edit_profile.css' %}">
+    <title>Edit Profile</title>
+    <link type="image/png" rel="Shortcut Icon" href="{% static 'smakolyk/images/pizza.png' %}">
+{% endblock %}
+
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1 class="prf">Edit Profile</h1>
+    <div class="ph-user">
+        <img id="photo-preview" src="{{user.userprofile.photo.url}}" >
+        {% render_field form.photo type='file' id='photo-upload' accept='image/*' %}
+        <label for="photo-upload"><i class="fa-solid fa-image"></i></label>
+        <button id="upload-button" class="nvm"></button>
+    </div>
+    <main>
+        <div class="header">
+            <div class="username"><label>Username:</label><br>
+                {% render_field form.username type="text" %}
+            </div><br>
+            <div class="fname"><label>First name:</label><br>
+                {% render_field form.first_name type="text" %}
+            </div><br>
+            <div class="lname"><label>Last name:</label><br>
+                {% render_field form.last_name type="text" %}
+            </div><br>
+            <div class="pnumber"><label>Phone number:</label><br>
+                <div class="input-group mb-3">
+                    {% render_field form.phone class="form-control" aria-label="Amount (to the nearest dollar)" type="tel" %}
+              </div>
+            </div><br>
+            <div class="brth"><label>Birthday:</label><br>
+                {% render_field form.birthdate type="date" %}
+            </div><br>
+            {% if form.errors %}
+            {% for kw, error in form.errors.items %}
+                {{error}}<br>
+            {% endfor %}
+        {% endif %}
+            <br>
+        </div>
+        <div class="buttons">
+            <button class="b1"><a href="{% url 'profile' %}">Go back</a></button>
+            <button class="b1" type="submit">Save</button>
+        </div>
+    </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+    <script src="{% static 'myapp/js/update_profile.js' %}"></script>
+</form>
+{% endblock %}
