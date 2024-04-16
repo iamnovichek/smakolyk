@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SmakolykConfig(AppConfig):
+class UserauthConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "apps.smakolyk"
+    name = "apps.user"

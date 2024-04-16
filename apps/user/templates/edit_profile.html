@@ -24,6 +24,11 @@
     </div>
     <main>
         <div class="header">
+            {% if form.errors %}
+                {% for error in errors %}
+                    {{error}}
+                {% endfor %}
+            {% endif %}
             <div class="username"><label>Username:</label><br>
                 {% render_field form.username type="text" %}
             </div><br>
@@ -41,11 +46,6 @@
             <div class="brth"><label>Birthday:</label><br>
                 {% render_field form.birthdate type="date" %}
             </div><br>
-            {% if form.errors %}
-            {% for kw, error in form.errors.items %}
-                {{error}}<br>
-            {% endfor %}
-        {% endif %}
             <br>
         </div>
         <div class="buttons">
@@ -59,6 +59,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
-    <script src="{% static 'myapp/js/update_profile.js' %}"></script>
+    <script src="{% static 'smakolyk/js/edit_profile.js' %}"></script>
 </form>
 {% endblock %}

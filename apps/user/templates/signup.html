@@ -14,6 +14,13 @@
     <form class="needs-validation" method="post">
          {% csrf_token %}
         <h1>Sign up</h1>
+
+        {% if form.errors %}
+            {% for error in errors %}
+                {{error}}
+            {% endfor %}
+        {% endif %}
+
         <div class="form-group was-validated">
             <label  class="inp form-label">Username:</label><br>
             {% render_field form.username class='form-control' type="text" %}
@@ -44,11 +51,6 @@
             <label class="inp form-label">Confirm password:</label><br>
             {% render_field form.password2 class='form-control' type="password" %}
         </div>
-        {% if form.errors %}
-            {% for kw, error in form.errors.items %}
-                {{error.as_p}}
-            {% endfor %}
-        {% endif %}
         <button type="submit">Submit</button>
     </form>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

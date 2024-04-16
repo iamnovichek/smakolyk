@@ -14,6 +14,7 @@ poetry.lock
 .idea
 
 /static
+media/profile_pics/*
 
 # Distribution / packaging
 .Python
