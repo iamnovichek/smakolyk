@@ -3,9 +3,9 @@ from datetime import datetime
 
 from django.core.exceptions import ValidationError
 
+from .custom_validators import is_too_old, is_too_young
 from .models import CustomUser, UserProfile
 from .values import ValidationMessages
-from .custom_validators import is_too_young, is_too_old
 
 
 class BaseFieldsDataValidator(ABC):

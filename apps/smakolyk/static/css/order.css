@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+.upper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upper .days{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upper .all{
+    border: 1px solid black;
+    padding: 10px;
+    width: 1000px;
+    border-radius: 10px;
+    background-color: rgb(238, 64, 64);
+}
+
+.upper .list{
+    margin-right: 30px;
+    margin-left: 30px;
+    border: 3.5px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.upper .p {
+    text-align: center;
+}
+
+.upper .home{
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 30px;
+    width: 100px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background-color: rgb(238, 64, 64);
+    height: 50px;
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.grn{
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    height: 50px;
+    width: 100px;
+    margin-right: 10px;
+    background-color: rgb(238, 64, 64);
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cairo', sans-serif;
+}
+
+.upper .day{
+    text-align: center;
+    border: transparent;
+}
+
+.main{
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 12px auto;
+    height: 600px;
+    background-color: rgb(238, 64, 64);
+}
+
+.main select{
+    width: 160px;
+}
+
+.titlu{
+    margin-left: 100px;
+}
+
+.main ul{
+    display: flex;
+    justify-content:space-evenly;
+    list-style: none;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 25px;
+    padding: 5px;
+}
+
+.sq{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main h2{
+    margin-right: 10px;
+    font-family: 'Ubuntu', sans-serif;}
+
+.qnt2{
+    position: relative;
+    right: 16px;
+}
+
+.qnt3{
+    position: relative;
+    left: 27px;
+}
+
+.qnt4{
+    position: relative;
+    left: 35px;
+}
+
+.tst{
+    position: relative;
+    left: 20px;
+}
+
+.prc{
+    position: relative;
+    right: 20px;
+}
+
+.fprc{
+    position: relative;
+    right: 10px;
+}
+
+.frst{
+    position: relative;
+    left: 13px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.b1{
+    border-radius: 10px;
+    padding: 5px;
+    width: 130px;
+    font-size: 25px;
+    background-color: rgb(17, 191, 191);
+    cursor: pointer;
+}
+
+select{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.upper .active{
+    border: 3.5px solid green;
+    background-color: rgb(224, 41, 41);
+}
+
+.off {
+    display: none;
+}
+
+.on {
+    display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(91, 90, 90);
+  border-radius: 10px;
+}

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Edu+NSW+ACT+Foundation:wght@500&family=Josefin+Sans:wght@200&family=Kanit:wght@300&family=Roboto:wght@300&family=Ubuntu:ital,wght@1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background: url(2640625.jpg);
+    background-size: cover;
+}
+
+nav{
+    width: 90%;
+    margin: auto;
+}
+
+nav h1{
+    text-align: center;
+    background-color: rgb(238, 64, 64);
+    color: white;
+    margin: auto;
+    border-radius: 0px 0px 10px 10px;
+}
+
+nav img{
+    width: 90px;
+    height: 50px;
+    position: absolute;
+}
+
+nav .img1{
+    position: relative;
+    transform: rotateY(180deg);
+    height: 50px;
+}
+
+.home{
+    position: absolute;
+    font-size: 20px;
+    background-color: rgb(150, 31, 31);
+    color: white;
+    margin: 6px;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 5px;
+    margin-left: 20px;
+}
+/* Upper */
+.upper ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.upper ul li{
+    font-size: 20px;
+    border: 1px solid rgb(238, 64, 64);;
+    border-radius: 10px;
+    background-color:rgb(238, 64, 64);
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+table{
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 80%;
+    border-collapse: collapse;
+}
+
+table th{
+    text-align: center;
+    background-color: rgb(209, 42, 42);
+    color: black;
+    font-size: 20px;
+}
+
+table td{
+    text-align: center;
+    background-color: rgb(238, 64, 64);
+    border: 1px solid white;
+    color: white;
+}
+
+input[type="date"]{
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    padding: 2px;
+}

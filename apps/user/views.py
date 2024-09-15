@@ -1,9 +1,9 @@
+from django.contrib import messages
+from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView, UpdateView
-from django.contrib.auth import login
-from django.contrib import messages
 
 from .forms import CustomSignupForm, EditProfileForm
 from .values import ValidationMessages
@@ -13,7 +13,7 @@ class CustomLoginView(LoginView):
     form_class = AuthenticationForm
     redirect_authenticated_user = True
     template_name = "login.html"
-    success_url = "home"
+    success_url = "smakolyk:home"
 
     def form_invalid(self, form):
         messages.error(self.request, ValidationMessages.invalid_login_form_message)

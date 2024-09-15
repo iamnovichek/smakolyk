@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'apps.userauth/css/success.css'%}">
-    <link type="image/png" rel="Shortcut Icon" href="{% static 'apps.userauth/images/pizza.png' %}">
+    <link rel="stylesheet" href="{% static 'css/success.css'%}">
+    <link type="image/png" rel="Shortcut Icon" href="{% static 'images/pizza.png' %}">
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
         </div><br>
         <div class="thx">Thank You!</div><br>
         <div class="details">Your data has been successfully saved!</div>
-        <button class="oke"><a href="{% url 'home' %}">OK</a></button>
+        <button class="oke"><a href="{% url 'smakolyk:home' %}">OK</a></button>
     </div>
 
 

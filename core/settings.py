@@ -1,6 +1,7 @@
 import os
-
 from pathlib import Path
+
+from celery.schedules import crontab
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -99,8 +100,32 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "login"
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "smakolyk:home"
+LOGOUT_REDIRECT_URL = "smakolyk:home"
 AUTH_USER_MODEL = "user.CustomUser"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+
+# SMTP settings
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Site management settings
+ACCOUNTANT = os.environ.get("ACCOUNTANT", "")
+ORDERS_RECEIVER = os.environ.get("ORDERS_RECEIVER", "")
+
+# Celery settings
+REDIS_IP = os.environ.get("CELERY_BROKER_IP", "redis")
+CELERY_BROKER_URL = f"redis://{REDIS_IP}:6379/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_IP}:6379/0"
+CELERY_BEAT_SCHEDULE = {
+    "send_orders_task": {
+        "task": "apps.smakolyk.tasks.send_orders_task",
+        "schedule": crontab(hour=18, minute=0, day_of_week="fri"),
+    }
+}

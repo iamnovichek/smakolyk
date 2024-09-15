@@ -1,12 +1,10 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.core.validators import validate_email, MinLengthValidator
 from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator, validate_email
+from django.db import models, transaction
 from django.utils.text import slugify
-from django.db import models
-
-from phonenumber_field.validators import validate_international_phonenumber
 from phonenumber_field.modelfields import PhoneNumberField
-
+from phonenumber_field.validators import validate_international_phonenumber
 from PIL import Image
 
 from apps.shared.models import AbstractModel
@@ -153,6 +151,7 @@ class UserProfile(AbstractModel):
         img.save(self.photo.path)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.username)
-        super().save(*args, **kwargs)
-        self._save_image()
+        with transaction.atomic():
+            self.slug = slugify(self.username)
+            super().save(*args, **kwargs)
+            self._save_image()

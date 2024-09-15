@@ -101,10 +101,6 @@ nav img{
 }
 
 
-.col-md-4 img{
-    margin: auto;
-    height: 65%;
-}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -123,22 +119,44 @@ nav img{
   border-radius: 10px;
 }
 
-#myCarousel , #myCarousel2 , #myCarousel3 , #myCarousel4{
-    margin-left: 120px;
-    margin-right: 120px;
+
+
+.main{
+    background-color: transparent;
 }
 
-.carousel-inner{
-    margin-top: 10px;
-    border-radius: 10px;
+
+.menu-item {
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px black;
 }
 
-.col-md-4{
+.carousel-item {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel{
     background-color: rgb(238, 64, 64);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    text-align: center;
+    margin-top: 20px;
+}
 
+.carousel button{
+    width: 70px;
+}
+
+.drink{
+    margin-bottom: 20px;
 }

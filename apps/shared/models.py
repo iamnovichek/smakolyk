@@ -14,11 +14,3 @@ class AbstractModel(models.Model):
 
     class Meta:
         abstract = True
-
-    def get_model_fields(self) -> list:
-        # TODO check if we will need this
-        """
-        Returns a list of field.attname for this model. This is useful for
-        :return: list of field.attname
-        """
-        return [field.name for field in self._meta.fields]

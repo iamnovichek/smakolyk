@@ -1,12 +1,12 @@
 import os
 
+from django import forms
+from django.db import transaction
 from phonenumber_field.formfields import PhoneNumberField
 
-from django import forms
-
 from .models import CustomUser, UserProfile
+from .utils import EditProfileFieldsValidator, SignUpFieldsDataValidator
 from .values import ValidationValues
-from .utils import SignUpFieldsDataValidator, EditProfileFieldsValidator
 
 
 class CustomSignupForm(forms.Form):
@@ -39,20 +39,21 @@ class CustomSignupForm(forms.Form):
         return cleaned_data
 
     def save(self, commit=True):
-        user = CustomUser.objects.create_user(
-            email=self.cleaned_data.get("email", ""),
-            password=self.cleaned_data.get("password1", ""),
-        )
+        with transaction.atomic():
+            user = CustomUser.objects.create_user(
+                email=self.cleaned_data.get("email", ""),
+                password=self.cleaned_data.get("password1", ""),
+            )
 
-        UserProfile.objects.create(
-            user=user,
-            username=self.cleaned_data.get("username", ""),
-            first_name=(self.cleaned_data.get("first_name", "").capitalize()),
-            last_name=(self.cleaned_data.get("last_name", "").capitalize()),
-            phone=self.cleaned_data.get("phone", ""),
-        )
+            UserProfile.objects.create(
+                user=user,
+                username=self.cleaned_data.get("username", ""),
+                first_name=(self.cleaned_data.get("first_name", "").capitalize()),
+                last_name=(self.cleaned_data.get("last_name", "").capitalize()),
+                phone=self.cleaned_data.get("phone", ""),
+            )
 
-        return user
+            return user
 
 
 class EditProfileForm(forms.ModelForm):
@@ -81,13 +82,14 @@ class EditProfileForm(forms.ModelForm):
             os.remove(os.path.join(os.getcwd(), self.userprofile.photo.path))
 
     def save(self, commit=True):
-        super().save(commit=False)
+        with transaction.atomic():
+            super().save(commit=False)
 
-        self._remove_old_profile_photo()
+            self._remove_old_profile_photo()
 
-        for field in self.fields:
-            setattr(self.userprofile, field, self.cleaned_data[field])
+            for field in self.fields:
+                setattr(self.userprofile, field, self.cleaned_data[field])
 
-        self.userprofile.save()
+            self.userprofile.save()
 
-        return self.userprofile
+            return self.userprofile

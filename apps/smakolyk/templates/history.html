@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'css/history.css' %}">
+  <link
+  type="image/png"
+  rel="Shortcut Icon"
+  href="{% static 'images/pizza.png' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>History</title>
+    <style>
+      body {
+        background-image: url('{% static "images/bg.jpg" %}');
+        background-size: cover;
+      }
+    </style>
+{% endblock  %}
+
+
+{% block content %}
+
+<nav>
+  <div class="logo">
+    <div class="home"><a style="text-decoration:none;color:white;" href='{% url "smakolyk:home" %}'>Home</a></div>
+    <h1>
+      <img class="img1" src="{% static 'images/pizza.png' %}">
+      SMAKOLYK
+      <img src="{% static 'images/pizza.png' %}">
+    </h1>
+  </div>
+</nav>
+  <div class="upper">
+      <ul>
+          <li><input id='date' type="date"></li>
+          <li>History</li>
+          <li><div id='total'>Total : </div></li>
+      </ul>
+  </div>
+  <table>
+      <tr>
+          <th>Day</th>
+          <th>Course</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total for day</th>
+      </tr>
+      {% for key, item in data.items %}
+        <tr>
+            <td>{{ key }}</td>
+
+            <td>
+                <div id="{{ key | lower }}-first_course">{{ item.first_course }}</div>
+                <div id='{{ key | lower }}-second_course'>{{item.second_course}}</div>
+                <div id='{{ key | lower }}-dessert'>{{item.dessert}}</div>
+                <div id='{{ key | lower }}-drink'>{{item.drink}}</div>
+            </td>
+            <td>
+                <div id='{{ key | lower }}-first_course_price'>{{ item.first_course_price }}</div>
+                <div id='{{ key | lower }}-second_course_price'>{{item.second_course_price}}</div>
+                <div id='{{ key | lower }}-dessert_price'>{{item.dessert_price}}</div>
+                <div id='{{ key | lower }}-drink_price'>{{item.drink_price}}</div>
+            </td>
+            <td>
+                <div id='{{ key | lower }}-first_course_quantity'>{{item.first_course_quantity}}</div>
+                <div id='{{ key | lower }}-second_course_quantity'>{{item.second_course_quantity}}</div>
+                <div id='{{ key | lower }}-dessert_quantity'>{{item.dessert_quantity}}</div>
+                <div id='{{ key | lower }}-drink_quantity'>{{item.drink_quantity}}</div>
+            </td>
+            <td>
+                <div id='{{ key | lower }}-total-amount' title="total-amount" >{{item.total_amount}}</div>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <script src='{% static "js/history.js" %}'></script>
+{% endblock content %}
+

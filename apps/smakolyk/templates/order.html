@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/order.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Order</title>
+    <link
+        type="image/png"
+        rel="Shortcut Icon"
+        href="{% static 'images/pizza.png' %}" />
+    <style>
+      body {
+        background-image: url('{% static "images/bg.jpg" %}');
+        background-size: cover;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="upper">
+        <div class="home">
+            <a href="{% url 'smakolyk:home' %}" style="color:white;">
+                <i class="fa-sharp fa-solid fa-house"></i>
+            </a>
+        </div>
+        <div class="all">
+            <div class="days">
+                {% for day, value in days.items %}
+                <div class="list{% if forloop.counter == 1 %} active{% endif %}" onclick="activateDiv(this)" id="day{{forloop.counter}}">{{day}}<br>{{value}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% for form in formset %}
+            <div id="div-grn{{forloop.counter}}" class="grn {% if forloop.counter != 1 %}off{% endif %}"><div id="grn{{forloop.counter}}">200</div><div>₴</div></div>
+        {% endfor %}
+    </div>
+
+    <form method='POST' id='main_form'>
+        {{ formset.management_form }}
+        {% csrf_token %}
+
+        {% for form in formset %}
+                <div id="subform{{forloop.counter}}" class="off {% if forloop.counter == 1 %} on {% endif %}">
+                    <div class="main">
+                        <ul>
+                            <li><h2 class="frst">First Course</h2></li>
+                            <li><h2 class="qnt1">Quantity</h2></li>
+                            <li><h2 class="fprc">Price</h2></li>
+                        </ul>
+                        <ul>
+                            {% render_field form.first_course class="sq" %}
+                            {% render_field form.first_course_quantity class="sq" %}
+                            <div class="sq" id='form{{forloop.counter}}_first_course_price' name="form{{forloop.counter}}_first_course_price"></div>
+                        </ul><br>
+                        <ul>
+                            <li><h2 class="tst">Second Course</h2></li>
+                            <li><h2 class="qnt2">Quantity</h2></li>
+                            <li><h2 class="prc">Price</h2></li>
+                        </ul>
+                        <ul>
+                            {% render_field form.second_course class="sq" %}
+                            {% render_field form.second_course_quantity class="sq" %}
+                            <div class="sq" id='form{{forloop.counter}}_second_course_price' name="form{{forloop.counter}}_second_course_price"></div>
+                        </ul><br>
+                        <ul>
+                            <li><h2>Dessert</h2></li>
+                            <li><h2 class="qnt3">Quantity</h2></li>
+                            <li><h2>Price</h2></li>
+                        </ul>
+                        <ul>
+                            {% render_field form.dessert class="sq" %}
+                            {% render_field form.dessert_quantity class="sq" %}
+                            <div class="sq" id='form{{forloop.counter}}_dessert_price' name="form{{forloop.counter}}_dessert_price"></div>
+                        </ul><br>
+                        <ul>
+                            <li><h2>Drinks</h2></li>
+                            <li><h2 class="qnt4">Quantity</h2></li>
+                            <li><h2>Price</h2></li>
+                        </ul>
+                        <ul>
+                            {% render_field form.drink class="sq" %}
+                            {% render_field form.drink_quantity class="sq" %}
+                            <div class="sq" id='form{{forloop.counter}}_drink_price' name="form{{forloop.counter}}_drink_price"></div>
+                        </ul>
+                    </div>
+                    {{ form.date }}
+                </div>
+        {% endfor %}
+            <div class="buttons">
+                <button class="b1" type='submit' id="save" style="visibility: hidden;">Save</button>
+            </div>
+        </form>
+
+
+    <script  src="{% static 'js/order.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           const week_days = [
+                '{{ Monday }}', '{{ Tuesday }}',
+                '{{ Wednesday }}', '{{ Thursday }}',
+                '{{ Friday }}',
+            ];
+
+            for (let i = 0; i < week_days.length; i++) {
+                let form_id = `id_form-${i}-date`;
+                let form = document.getElementById(form_id);
+
+                form.value = week_days[i];
+                form.style.visibility = 'hidden';
+            }
+            });
+
+    </script>
+{% endblock %}

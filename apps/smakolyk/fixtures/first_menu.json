@@ -1,0 +1,130 @@
+[
+{
+    "model": "smakolyk.menu",
+    "pk": "1a519ebc-dcbc-4d71-a3d2-507b01ad9f7e",
+    "fields": {
+        "created_at": "2024-09-10T20:58:31.732Z",
+        "updated_at": "2024-09-10T20:58:31.732Z",
+        "first_course": "soup",
+        "first_course_price": 60,
+        "second_course": "pizza",
+        "second_course_price": 80,
+        "dessert": "tort",
+        "dessert_price": 40,
+        "drink": "tea",
+        "drink_price": 20
+    }
+},
+{
+    "model": "smakolyk.menu",
+    "pk": "6923eab6-e0fd-4006-8134-84dcbbefe7d4",
+    "fields": {
+        "created_at": "2024-09-10T20:58:31.732Z",
+        "updated_at": "2024-09-10T20:58:31.732Z",
+        "first_course": "borshch",
+        "first_course_price": 80,
+        "second_course": "grechka",
+        "second_course_price": 35,
+        "dessert": "maffin",
+        "dessert_price": 65,
+        "drink": "soda",
+        "drink_price": 20
+    }
+},
+{
+    "model": "smakolyk.menu",
+    "pk": "ad0531c6-2137-400d-9e64-5feccffd51c7",
+    "fields": {
+        "created_at": "2024-09-10T20:58:31.732Z",
+        "updated_at": "2024-09-10T20:58:31.732Z",
+        "first_course": "pure",
+        "first_course_price": 75,
+        "second_course": "salad",
+        "second_course_price": 70,
+        "dessert": "ecler",
+        "dessert_price": 35,
+        "drink": "coffe",
+        "drink_price": 20
+    }
+},
+    {
+        "model": "smakolyk.menu",
+        "pk": "39e84d1d-f15d-4a36-83d3-5c47be1440e5",
+        "fields": {
+            "created_at": "2024-09-10T21:00:00.000Z",
+            "updated_at": "2024-09-10T21:00:00.000Z",
+            "first_course": "gazpacho",
+            "first_course_price": 50,
+            "second_course": "spaghetti",
+            "second_course_price": 90,
+            "dessert": "cheesecake",
+            "dessert_price": 40,
+            "drink": "juice",
+            "drink_price": 20
+        }
+    },
+    {
+        "model": "smakolyk.menu",
+        "pk": "62f69fb9-6575-4b96-9232-305e7d9252de",
+        "fields": {
+            "created_at": "2024-09-10T21:00:00.000Z",
+            "updated_at": "2024-09-10T21:00:00.000Z",
+            "first_course": "minestrone",
+            "first_course_price": 60,
+            "second_course": "lasagna",
+            "second_course_price": 80,
+            "dessert": "tiramisu",
+            "dessert_price": 35,
+            "drink": "water",
+            "drink_price": 25
+        }
+    },
+    {
+        "model": "smakolyk.menu",
+        "pk": "83c6f593-21c8-4968-924d-02858d0303a1",
+        "fields": {
+            "created_at": "2024-09-10T21:00:00.000Z",
+            "updated_at": "2024-09-10T21:00:00.000Z",
+            "first_course": "caesar salad",
+            "first_course_price": 55,
+            "second_course": "grilled chicken",
+            "second_course_price": 85,
+            "dessert": "fruit salad",
+            "dessert_price": 35,
+            "drink": "lemonade",
+            "drink_price": 25
+        }
+    },
+    {
+        "model": "smakolyk.menu",
+        "pk": "a8c5c20d-7e33-4185-b937-2a063dd402ef",
+        "fields": {
+            "created_at": "2024-09-10T21:00:00.000Z",
+            "updated_at": "2024-09-10T21:00:00.000Z",
+            "first_course": "lentil soup",
+            "first_course_price": 65,
+            "second_course": "steak",
+            "second_course_price": 90,
+            "dessert": "chocolate mousse",
+            "dessert_price": 30,
+            "drink": "sparkling water",
+            "drink_price": 15
+        }
+    },
+    {
+        "model": "smakolyk.menu",
+        "pk": "c7d4bfe9-657d-4c7f-8f89-02b0e20f015a",
+        "fields": {
+            "created_at": "2024-09-10T21:00:00.000Z",
+            "updated_at": "2024-09-10T21:00:00.000Z",
+            "first_course": "pumpkin soup",
+            "first_course_price": 45,
+            "second_course": "fish and chips",
+            "second_course_price": 85,
+            "dessert": "apple pie",
+            "dessert_price": 50,
+            "drink": "iced tea",
+            "drink_price": 20
+        }
+    }
+]

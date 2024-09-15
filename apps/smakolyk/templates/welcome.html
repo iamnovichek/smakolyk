@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Smakolyk</title>
-    <link rel="stylesheet" href="{% static 'smakolyk/css/welcome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
     <link
         type="image/png"
         rel="Shortcut Icon"
-        href="{% static 'smakolyk/images/pizza.png' %}">
+        href="{% static 'images/pizza.png' %}">
     <style>
       body {
-        background-image: url('{% static "smakolyk/images/main_bg.jpg" %}');
+        background-image: url('{% static "images/main_bg.jpg" %}');
         background-size: cover;
       }
       .btns{
@@ -26,12 +26,12 @@
         border: 1px solid red;
         color: white;
         font-family: 'Ubuntu', sans-serif;
-        cursor:url('{% static "smakolyk/images/cursor.png" %}'),pointer;
+        cursor:url('{% static "images/cursor.png" %}'),pointer;
       }
       a{
         text-decoration:none;
         color: white;
-        cursor:url('{% static "smakolyk/images/cursor.png" %}'),pointer;
+        cursor:url('{% static "images/cursor.png" %}'),pointer;
       }
     </style>
 {% endblock %}
@@ -43,7 +43,7 @@
     <div class="main">
         <div class="txt">Welcome to our page</div>
         <div class="btn">
-            <button class="btns"><a href="{% url 'home' %}">GET STARTED</a></button>
+            <button class="btns"><a href="{% url 'smakolyk:home' %}">GET STARTED</a></button>
         </div>
     </div>
 {% endblock %}
